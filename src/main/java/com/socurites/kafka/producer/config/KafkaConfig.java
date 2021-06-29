@@ -13,14 +13,14 @@ import org.springframework.kafka.core.KafkaTemplate;
 
 @Configuration
 public class KafkaConfig {
-	@Value("${spring.kafka.producer.bootstra-servers}")
+	@Value("${spring.kafka.producer.bootstrap-servers}")
 	private String bootstrapServers;
 	
 	@Value("${spring.kafka.producer.acks}")
 	private String acks;
 	
 	@Bean
-	public KafkaTemplate<String, String> customKafkaTempate() {
+	public KafkaTemplate<String, String> customKafkaTemplate() {
 		Map<String, Object> props = new HashMap<>();
 		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
 		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
